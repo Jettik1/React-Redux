@@ -7,7 +7,7 @@
 }
 
 .logo {
-  width: 61px;
+  width: 5em;
 }
 
 .logo a {
@@ -26,6 +26,8 @@
 
 .socials {
   display: flex;
+  justify-content: center;
+  flex: auto;
   gap: 15px;
 }
 
