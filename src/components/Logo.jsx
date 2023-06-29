@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "../utils/routes";
 import LOGO from "../images/logo2.png";
 
-export const Logo = (props) => {
+export const Logo = (style) => {
     return (
-            <div className={props.logo}>
+            <div className={style.logo}>
                 <Link to={ROUTES.HOME}>
                     <img src={LOGO} alt="logo"/>
                 </Link>
