@@ -4,16 +4,25 @@ import styles from "../../styles/Product.module.css"
 import {current} from "@reduxjs/toolkit";
 import {ROUTES} from "../../utils/routes";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import userSlice, { addItemToCart } from "../../features/userSlice"
 
-const Product = ({ title, price, description, images }) => {
+const Product = (item) => {
+    const { title, price, description, images } = item
+
+    const dispatch = useDispatch();
+
     const [currentImage, setCurrentImage] = useState()
-
 
     useEffect(() => {
         if(!images.length) return ;
 
         setCurrentImage(images[0])
     },[images])
+
+    const addToCart = () => {
+        dispatch(addItemToCart(item))
+    }
 
     return (
         <section className={styles.product}>
@@ -43,7 +52,7 @@ const Product = ({ title, price, description, images }) => {
                 <p className={styles.description}>{description}</p>
 
                 <div className={styles.actions}>
-                    <button className={styles.add}>Добавить в корзину</button>
+                    <button onClick={addToCart} className={styles.add}>Добавить в корзину</button>
 
                     <Link to={ROUTES.HOME}>На главную страницу</Link>
                 </div>
