@@ -12,11 +12,13 @@ const SingleProduct = () => {
     const dispatch = useDispatch()
     const {id} = useParams()
     const navigate = useNavigate()
-    const {related} = useSelector(({ products }) => products)
+    const { list, related} = useSelector(({ products }) => products)
 
     const { data, isLoading, isFetching, isSuccess } = useGetProductByIdQuery({id})
 
     useEffect(() => {
+        if(!data || !list.length) return;
+
         if(!isFetching && !isLoading && !isSuccess) {
             navigate(ROUTES.HOME)
         }
