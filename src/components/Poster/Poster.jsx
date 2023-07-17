@@ -16,8 +16,8 @@ const Poster = () => {
                         Shop now
                     </button>
                 </div>
-                <div className={styles.image}>
-                    <img src={Photo} alt=""/>
+                <div className={styles.image} >
+                    <img src={Photo} style={{width: "150px"}} alt=""/>
                 </div>
             </div>
         </section>
